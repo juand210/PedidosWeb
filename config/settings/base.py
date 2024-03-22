@@ -19,7 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 BASE_APPS = [
+<<<<<<< HEAD
     'core.apps.CoreConfig'
+=======
+>>>>>>> 6133edad35565e743e5168cdd11cb9588b2c5eba
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,13 +55,22 @@ ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
+<<<<<<< HEAD
         'BACKEND': 'django.templates.backends.django.DjangoTemplates',
+=======
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+>>>>>>> 6133edad35565e743e5168cdd11cb9588b2c5eba
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+<<<<<<< HEAD
                 'django.templates.context_processors.debug',
                 'django.templates.context_processors.request',
+=======
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+>>>>>>> 6133edad35565e743e5168cdd11cb9588b2c5eba
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
