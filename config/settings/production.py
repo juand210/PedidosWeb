@@ -8,7 +8,7 @@ load_dotenv(Path.joinpath(BASE_DIR, '.env'))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -22,6 +22,6 @@ DATABASES = {
     }
 }
 
-STATIC_ROOT = Path.joinpath(BASE_DIR,'staticfiles')
+STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
