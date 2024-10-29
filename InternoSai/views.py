@@ -2,16 +2,17 @@ import json
 import requests
 import datetime
 from django.http import JsonResponse
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
+from InternoSai.models import Customer
+from InternoSai.serializers import CustomerSerializers
+from rest_framework import viewsets
 
 
-@login_required
-def home(request):
-    return render(request, 'index.html')
+class CustomerViewSets(viewsets.ModelViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializers
 
 
 class RegistroFacturaElectronica(View):

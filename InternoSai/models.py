@@ -71,7 +71,7 @@ class Item(models.Model):
 
 class DocumentType(models.Model):
     document = models.CharField(max_length=3, verbose_name="Clase documento")
-    type = models.CharField(max_length=3, verbose_name="Tipo de documento")
+    typeOrder = models.CharField(max_length=3, verbose_name="Tipo de documento")
     number = models.IntegerField(verbose_name="Consecutivo")
 
     def __str__(self):
@@ -84,7 +84,7 @@ class DocumentType(models.Model):
 
 class OrderHeader(models.Model):
     customer = models.ForeignKey(Customer, related_name='customer', on_delete=models.SET_NULL, null=True)
-    type = models.ForeignKey(DocumentType, related_name='type', on_delete=models.SET_NULL, null=True)
+    typeOrder = models.ForeignKey(DocumentType, related_name='type', on_delete=models.SET_NULL, null=True)
     number = models.IntegerField(verbose_name="Consecutivo")
     date = models.DateTimeField()
     subtotal = models.FloatField(verbose_name="Subtotal")
@@ -93,7 +93,7 @@ class OrderHeader(models.Model):
     total = models.FloatField(verbose_name="Total")
 
     def __str__(self):
-        return self.customer + "(" + self.type + self.number + ")"
+        return self.customer + "(" + self.typeOrder + self.number + ")"
 
     class Meta:
         verbose_name = "Pedido"
