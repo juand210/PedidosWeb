@@ -75,7 +75,7 @@ class DocumentType(models.Model):
     number = models.IntegerField(verbose_name="Consecutivo")
 
     def __str__(self):
-        return self.document + "(" + self.type + ")"
+        return self.document + "(" + self.typeOrder + ")"
 
     class Meta:
         verbose_name = "Tipo Documento"
@@ -113,3 +113,17 @@ class OrderDetail(models.Model):
     class Meta:
         verbose_name = "Detalle de Pedido"
         verbose_name_plural = "Detalles de Pedido"
+
+
+class User(models.Model):
+    user_name = models.CharField(max_length=20, verbose_name="Usuario")
+    password = models.CharField(max_length=20, verbose_name="Contraseña")
+    user_type = models.CharField(max_length=10, verbose_name="Tipo de Usuario")
+    name = models.CharField(max_length=20, verbose_name="Nombre de Usuario")
+
+    def __str__(self):
+        return f"{self.user_name} - Nombre: {self.name}"
+
+    class Meta:
+        verbose_name = "Tipo de Usuario"
+        verbose_name_plural = "Tipo de Usuario"

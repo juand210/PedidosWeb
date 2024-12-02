@@ -5,14 +5,48 @@ from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
-from InternoSai.models import Customer
-from InternoSai.serializers import CustomerSerializers
+from InternoSai.models import Customer, Branches, Item, DocumentType, OrderHeader, OrderDetail, User
+from InternoSai.serializers import (CustomerSerializers, BranchesSerializers, ItemSerializers, DocumentTypeSerializers,
+                                    OrderHeaderSerializers, OrderDetailSerializers, UserSerializers)
 from rest_framework import viewsets
 
 
 class CustomerViewSets(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializers
+
+
+class BranchesViewSets(viewsets.ModelViewSet):
+    queryset = Branches.objects.all()
+    serializer_class = BranchesSerializers
+
+
+class ItemViewSets(viewsets.ModelViewSet):
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializers
+
+
+class DocumentTypeViewSets(viewsets.ModelViewSet):
+    queryset = DocumentType.objects.all()
+    serializer_class = DocumentTypeSerializers
+
+
+class OrderHeaderViewSets(viewsets.ModelViewSet):
+    queryset = OrderHeader.objects.all()
+    serializer_class = OrderHeaderSerializers
+
+
+class OrderDetailViewSets(viewsets.ModelViewSet):
+    queryset = OrderDetail.objects.all()
+    serializer_class = OrderDetailSerializers
+
+class UserViewSets(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializers
+
+
+
+
 
 
 class RegistroFacturaElectronica(View):
