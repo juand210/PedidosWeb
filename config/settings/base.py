@@ -27,6 +27,7 @@ BASE_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'InternoSai',
+    'corsheaders',
 ]
 LOCAL_APPS = [
 
@@ -40,12 +41,11 @@ INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRDS_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -119,3 +119,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/accounts/login/'
+
+CORS_ALLOW_ALL_ORIGINS = True

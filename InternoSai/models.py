@@ -120,6 +120,7 @@ class User(models.Model):
     password = models.CharField(max_length=20, verbose_name="Contraseña")
     user_type = models.CharField(max_length=10, verbose_name="Tipo de Usuario")
     name = models.CharField(max_length=20, verbose_name="Nombre de Usuario")
+    email = models.CharField(max_length=50, verbose_name="Email")
 
     def __str__(self):
         return f"{self.user_name} - Nombre: {self.name}"
